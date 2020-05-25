@@ -1,0 +1,153 @@
+.cdx-loader {
+  border: none;
+  margin: auto;
+}
+
+.inline-image .cdx-loader {
+  min-height: 200px;
+}
+
+.inline-image .cdx-input {
+  margin-top: 10px;
+}
+
+.inline-image img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+.inline-image__caption[contentEditable=true][data-placeholder]:empty::before {
+  position: absolute;
+  content: attr(data-placeholder);
+  color: #707684;
+  font-weight: normal;
+  opacity: 0;
+ }
+
+.inline-image__caption[contentEditable=true][data-placeholder]:empty::before {
+  opacity: 1;
+}
+
+.inline-image__caption[contentEditable=true][data-placeholder]:empty:focus::before {
+  opacity: 0;
+}
+
+.inline-image__picture--withBackground {
+  background: #eff2f5;
+  padding: 10px;
+  text-align: center;
+}
+
+.inline-image__picture--withBackground img {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+
+.inline-image__picture--withBorder {
+  border: 1px solid #e8e8eb;
+  padding: 1px;
+}
+
+.inline-image__picture--stretched img {
+  max-width: none;
+  width: 100%;
+}
+
+.inline-image__tab-wrapper {
+  display: flex;
+  margin-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: lightgray;
+}
+
+.inline-image__tab {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.inline-image__tab:hover {
+  background: #eff2f5;
+}
+
+.inline-image__tab.active {
+  border-width: 0 0 3px 0;
+  border-style: solid;
+  border-color: #388ae5;
+}
+
+.inline-image__embed-button {
+  width: 50%;
+  background-color: #388ae5;
+  color: white;
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
+}
+
+.inline-image__embed-button:hover {
+  opacity: 0.9;
+}
+
+.inline-image__control-panel {
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 3px 6px,
+    rgba(15, 15, 15, 0.2) 0px 9px 24px;
+}
+
+.inline-image__image-gallery {
+  max-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background: white;
+  margin: 5px;
+}
+
+.inline-image__img-wrapper {
+    width: 25%;
+}
+
+.inline-image__thumb {
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+  width: 90%;
+  height: 105px;
+  padding: 5px;
+  object-position: center 0%;
+  cursor: pointer;
+}
+
+.inline-image__image-credits {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 5px;
+  color: gray;
+}
+
+.inline-image__image-credits a {
+  color: gray;
+}
+
+.inline-image__search {
+  margin: 10px;
+  width: 96%;
+}
+
+.inline-image__no-results{
+  width: 100%;
+  text-align: center;
+  margin: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
