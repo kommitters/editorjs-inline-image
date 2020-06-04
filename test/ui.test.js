@@ -33,6 +33,15 @@ describe('Ui', () => {
       expect(credits).not.toBeEmptyDOMElement();
     });
 
+    it('does not render image credits if unsplash data is not valid', () => {
+      ui.render({ url: data.url });
+
+      const { image, credits } = ui.nodes;
+      triggerEvent(image, 'load');
+
+      expect(credits).toBe(null);
+    });
+
     it('renders control panel if no data is passed', () => {
       const mockRender = jest.spyOn(ControlPanel.prototype, 'render')
         .mockImplementation(() => document.createElement('div'));

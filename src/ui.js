@@ -125,9 +125,13 @@ export default class Ui {
    * @returns {HTMLDivElement}
    */
   buildImageCredits(imageData) {
-    const { appName } = this.config.unsplash;
-    const credits = createImageCredits({ ...imageData.unsplash, appName });
-    this.nodes.imageHolder.appendChild(credits);
+    const unsplashData = imageData.unsplash;
+    if (unsplashData && unsplashData.author && unsplashData.profileLink) {
+      const { appName } = this.config.unsplash;
+      const credits = createImageCredits({ ...unsplashData, appName });
+      this.nodes.imageHolder.appendChild(credits);
+      this.nodes.credits = credits;
+    }
   }
 
   /**
@@ -201,7 +205,7 @@ export default class Ui {
   selectImage(data) {
     this.onAddImageData(data);
     this.showLoader();
-    if (data.unsplash) this.buildImageCredits(data);
+    this.buildImageCredits(data);
   }
 
   /**
