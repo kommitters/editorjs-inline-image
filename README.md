@@ -6,6 +6,8 @@ Image tool for [Editor.js](https://editorjs.io).
 
 Embed images from image files, URLs or [Unsplash](https://unsplash.com/).
 
+![](assets/demo.gif)
+
 ## Notes
 
 Requires no server-side uploader.
