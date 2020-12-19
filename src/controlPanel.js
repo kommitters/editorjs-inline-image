@@ -4,21 +4,23 @@ import UnsplashClient from './unsplashClient';
 /**
  * Renders control panel view
  *  - Embed image url
- *  - Embed image from Unspalsh
+ *  - Embed image from Unsplash
  */
 export default class ControlPanel {
   /**
-   * @param {{api: object, config: object, cssClasses: object, onSelectImage: Function}}
+   * @param {{api: object, config: object, readOnly: Boolean, cssClasses: object, onSelectImage: Function}}
    *  api - Editorjs API
    *  config - Tool custom config
+   *  readOnly - read-only mode flag
    *  cssClasses - Css class names
    *  onSelectImage - Image selection callback
    */
   constructor({
-    api, config, cssClasses, onSelectImage,
+    api, config, cssClasses, onSelectImage, readOnly,
   }) {
     this.api = api;
     this.config = config;
+    this.readOnly = readOnly;
 
     this.cssClasses = {
       ...cssClasses,
@@ -119,7 +121,7 @@ export default class ControlPanel {
     const wrapper = make('div');
     const urlInput = make('div', [this.cssClasses.input, this.cssClasses.caption], {
       id: 'image-url',
-      contentEditable: 'true',
+      contentEditable: !this.readOnly,
     });
     const embedImageButton = make('div', [this.cssClasses.embedButton, this.cssClasses.input], {
       id: 'embed-button',
@@ -138,7 +140,7 @@ export default class ControlPanel {
   /**
    * OnClick handler for Embed Image Button
    *
-   * @param {string} imageUrl Embeded image url
+   * @param {string} imageUrl embedded image url
    * @returns {void}
    */
   embedButtonClicked(imageUrl) {
@@ -162,7 +164,7 @@ export default class ControlPanel {
     const imageGallery = make('div', this.cssClasses.imageGallery);
     const searchInput = make('div', [this.cssClasses.input, this.cssClasses.caption, this.cssClasses.search], {
       id: 'unsplash-search',
-      contentEditable: 'true',
+      contentEditable: !this.readOnly,
       oninput: () => this.searchInputHandler(),
     });
 
@@ -199,7 +201,7 @@ export default class ControlPanel {
   }
 
   /**
-   * Perfoms image search on user input.
+   * Performs image search on user input.
    * Defines a timeout for preventing multiple requests
    *
    * @returns {void}
@@ -262,7 +264,7 @@ export default class ControlPanel {
    * @param {{url: string, author: string, profileLink: string, downloadLocation: string}}
    *  url - Image url
    *  author - Unsplash image author name
-   *  profileLink - Unsplars author profile link
+   *  profileLink - Unsplash author profile link
    *  downloadLocation - Unsplash endpoint for image download
    *
    * @returns {void}
