@@ -4,7 +4,7 @@ import toolboxIcon from '../assets/toolboxIcon.svg';
 
 /**
  * InlineImage Tool for the Editor.js
- * Works with pasted images, embeded URLs and Unspalsh images.
+ * Works with pasted images, embedded URLs and Unsplash images.
  * Requires no server-side uploader.
  *
  * @typedef {object} InlineImageData
@@ -36,18 +36,22 @@ export default class InlineImage {
   /**
    * Render tool`s main Element and fill it with saved data
    *
-   * @param {{data: object, config: object, api: object}}
+   * @param {{data: object, config: object, api: object, readOnly: Boolean}}
    *   data — previously saved data
    *   config - custom tool config
    *   api - Editor.js API
+   *   readOnly - read-only mode flag
    */
-  constructor({ data, api, config }) {
+  constructor({ data, api, config, readOnly }) {
     this.api = api;
+
+    this.readOnly = readOnly;
 
     this.ui = new Ui({
       data,
       api,
       config,
+      readOnly,
       onAddImageData: (imageData) => this.addImageData(imageData),
       onTuneToggled: (tuneName) => this.tuneToggled(tuneName),
     });
@@ -234,5 +238,14 @@ export default class InlineImage {
     const value = !this.data[tuneName];
     this.data = { [tuneName]: value };
     this.ui.applyTune(tuneName, value);
+  }
+
+  /**
+   * Notify core that read-only mode is supported
+   *
+   * @returns {boolean}
+   */
+  static get isReadOnlySupported() {
+    return true;
   }
 }

@@ -13,17 +13,19 @@ import stretchedIcon from '../assets/toolboxIcon.svg';
  */
 export default class Ui {
   /**
-   * @param {{api: object, config: object, onAddImageData: Function, onTuneToggled: Function}}
+   * @param {{api: object, config: object, readOnly: Boolean, onAddImageData: Function, onTuneToggled: Function}}
    *   api - Editorjs API
    *   config - Tool custom config
+   *   readOnly - read-only mode flag
    *   onAddImageData - Callback for adding image data
-   *   onTuneToggled - Callcack for updating tunes data
+   *   onTuneToggled - Callback for updating tunes data
    */
   constructor({
-    api, config, onAddImageData, onTuneToggled,
+    api, config, readOnly, onAddImageData, onTuneToggled,
   }) {
     this.api = api;
     this.config = config;
+    this.readOnly = readOnly;
     this.onAddImageData = onAddImageData;
     this.onTuneToggled = onTuneToggled;
 
@@ -54,6 +56,7 @@ export default class Ui {
     this.controlPanel = new ControlPanel({
       api,
       config,
+      readOnly,
       cssClasses: this.CSS,
       onSelectImage: (imageData) => this.selectImage(imageData),
     });
@@ -91,7 +94,7 @@ export default class Ui {
       onerror: () => this.onImageLoadError(),
     });
     const caption = make('div', [this.CSS.input, this.CSS.caption], {
-      contentEditable: 'true',
+      contentEditable: !this.readOnly,
       innerHTML: data.caption || '',
     });
     this.nodes.imageHolder = make('div', this.CSS.imageHolder);
@@ -136,7 +139,7 @@ export default class Ui {
 
   /**
    * On image load callback
-   * Shows the embeded image
+   * Shows the embedded image
    *
    * @returns {void}
    */
@@ -197,7 +200,7 @@ export default class Ui {
   }
 
   /**
-   * Callback fired when an image is embeded
+   * Callback fired when an image is embedded
    *
    * @param {Object} data Tool data
    * @returns {void}
