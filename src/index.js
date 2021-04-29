@@ -42,9 +42,10 @@ export default class InlineImage {
    *   api - Editor.js API
    *   readOnly - read-only mode flag
    */
-  constructor({ data, api, config, readOnly }) {
+  constructor({
+    data, api, config, readOnly,
+  }) {
     this.api = api;
-
     this.readOnly = readOnly;
 
     this.ui = new Ui({
