@@ -41,6 +41,9 @@ const editor = EditorJS({
         class: InlineImage,
         inlineToolbar: true,
         config: {
+          embed: {
+            display: true,
+          },
           unsplash: {
             appName: 'your_app_name',
             clientId: 'your_client_id'
@@ -55,6 +58,7 @@ const editor = EditorJS({
 
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
+| embed          | {display: boolean} | You could display or not the embed tab, If you don't fill the embed config by default the value is set on true
 | unsplash       | `{appName: string, clientId: string, maxResults: string}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unspalsh `Application Name`. <br><br> **clientId**: Unsplash `Access Key`. <br><br> **maxResults**: Max number of images per search (default 30).                    |
 
 ## Tool's tunes
