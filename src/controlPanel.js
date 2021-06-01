@@ -52,6 +52,7 @@ export default class ControlPanel {
 
     this.unsplashClient = new UnsplashClient(this.config.unsplash);
     this.searchTimeout = null;
+    this.showEmbedTab = this.config.embed ? this.config.embed.display : true
   }
 
   /**
@@ -66,7 +67,7 @@ export default class ControlPanel {
       innerHTML: 'Embed URL',
       onclick: () => this.showEmbedUrlPanel(),
     });
-    const unsplashTab = make('div', this.cssClasses.tab, {
+    const unsplashTab = make('div', [this.cssClasses.tab, this.showEmbedTab ? null : this.cssClasses.active], {
       innerHTML: 'Unsplash',
       onclick: () => this.showUnsplashPanel(),
     });
@@ -74,16 +75,16 @@ export default class ControlPanel {
     const embedUrlPanel = this.renderEmbedUrlPanel();
     const unsplashPanel = this.renderUnsplashPanel();
 
-    tabWrapper.appendChild(embedUrlTab);
+    this.showEmbedTab && tabWrapper.appendChild(embedUrlTab);
     tabWrapper.appendChild(unsplashTab);
     wrapper.appendChild(tabWrapper);
-    wrapper.appendChild(embedUrlPanel);
+    this.showEmbedTab && wrapper.appendChild(embedUrlPanel);
     wrapper.appendChild(unsplashPanel);
 
-    this.nodes.embedUrlPanel = embedUrlPanel;
+    this.nodes.embedUrlPanel = this.showEmbedTab ? embedUrlPanel : null;
     this.nodes.unsplashPanel = unsplashPanel;
-    this.nodes.embedUrlTab = embedUrlTab;
-    this.nodes.unsplashTab = unsplashTab;
+    this.nodes.embedUrlTab   = this.showEmbedTab ? embedUrlTab : null;
+    this.nodes.unsplashTab   = unsplashTab;
 
     return wrapper;
   }
@@ -160,7 +161,7 @@ export default class ControlPanel {
    * @returns {HTMLDivElement}
    */
   renderUnsplashPanel() {
-    const wrapper = make('div', this.cssClasses.hidden);
+    const wrapper = make('div', this.showEmbedTab ? this.cssClasses.hidden : null);
     const imageGallery = make('div', this.cssClasses.imageGallery);
     const searchInput = make('div', [this.cssClasses.input, this.cssClasses.caption, this.cssClasses.search], {
       id: 'unsplash-search',

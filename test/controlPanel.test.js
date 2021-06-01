@@ -1,4 +1,5 @@
 import createControlPanel from './fixtures/controlPanel';
+import createControlPanelWithOutEmbed from './fixtures/ControlPanelWithOutEmbed';
 import { parsedResponse } from './fixtures/unsplashApi';
 import { triggerEvent } from './testHelpers';
 import UnsplashClient from '../src/unsplashClient';
@@ -135,4 +136,43 @@ describe('ControlPanel', () => {
       });
     });
   });
+});
+
+describe('ControlPanel without Embed', () => {
+  let controlPanel;
+
+  beforeEach(() => {
+    controlPanel = createControlPanelWithOutEmbed(onSelectImage, notify);
+    controlPanel.render();
+  });
+
+  describe('embed panel', () => {
+    let embedUrlPanel;
+    let embedUrlTab;
+
+    beforeEach(() => {
+      embedUrlPanel = controlPanel.nodes.embedUrlPanel;
+      embedUrlTab = controlPanel.nodes.embedUrlTab
+    });
+
+    it('the embed panel does not visible', () => {
+      expect(embedUrlPanel).toBeNull();
+      expect(embedUrlTab).toBeNull();
+    });
+
+  });
+
+  describe('unsplash is visible', () => {
+    let unsplashPanel;
+
+    beforeEach(() => {
+      unsplashPanel = controlPanel.nodes.unsplashPanel;
+    });
+
+    it('the unsplash panel has to be visible', () => {
+      expect(unsplashPanel).not.toBeEmptyDOMElement();
+      expect(unsplashPanel).not.toHaveClass('hidden');
+    });
+  });
+
 });
