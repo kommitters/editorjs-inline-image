@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3 (01.06.2021)
+
+* Config to disable the embed images tab was added.
+* Updated packages with known security breaches.
+
 ## 0.1.2 (29.04.2021)
 
 * Added support to read-only mode.
