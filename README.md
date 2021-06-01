@@ -58,7 +58,7 @@ const editor = EditorJS({
 
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
-| embed          | {display: boolean} | You could display or not the embed tab, If you don't fill the embed config by default the value is set on true
+| embed          | `{display: boolean}` | You could display or not the embed tab, If you don't fill the embed config by default the value is set on true
 | unsplash       | `{appName: string, clientId: string, maxResults: string}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unspalsh `Application Name`. <br><br> **clientId**: Unsplash `Access Key`. <br><br> **maxResults**: Max number of images per search (default 30).                    |
 
 ## Tool's tunes
