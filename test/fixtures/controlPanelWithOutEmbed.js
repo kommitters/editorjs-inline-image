@@ -7,6 +7,7 @@ const cssClasses = {
 
 /**
  * Config object without embed
+ * test CI
  */
 const config = {
   embed:{
