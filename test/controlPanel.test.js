@@ -1,5 +1,5 @@
 import createControlPanel from './fixtures/controlPanel';
-import createControlPanelWithOutEmbed from './fixtures/ControlPanelWithOutEmbed';
+import createControlPanelWithOutEmbed from './fixtures/controlPanelWithOutEmbed';
 import { parsedResponse } from './fixtures/unsplashApi';
 import { triggerEvent } from './testHelpers';
 import UnsplashClient from '../src/unsplashClient';
