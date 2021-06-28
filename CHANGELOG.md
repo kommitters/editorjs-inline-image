@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4 (28.06.2021)
+
+* Updated bundle file.
+* Bug fix.
+
 ## 0.1.3 (01.06.2021)
 
 * Config to disable the embed images tab was added.
