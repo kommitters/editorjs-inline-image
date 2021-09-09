@@ -1,16 +1,16 @@
 ![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
-# EditorJS Inline Image Tool
+# EditorJS Unsplash Inline Image Tool
 
 Image tool for [Editor.js](https://editorjs.io).
 
-Embed images from image files, URLs or [Unsplash](https://unsplash.com/).
+Embed images from [Unsplash](https://unsplash.com/), blob or URLs.
 
 ![](assets/demo.gif)
 
 ## Notes
 
-Requires no server-side uploader.
+Do not require a server-side uploader.
 
 Built following the [Unsplash API Guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines).
 
@@ -98,20 +98,20 @@ const editor = EditorJS({
 **Unsplash image**
 
 ```json
-        {
-            "type": "image",
-            "data": {
-                "url": "https://images.unsplash.com/photo-xxxxxxxxxxxxxxxxx",
-                "caption": "An image from Unsplash",
-                "withBorder": false,
-                "withBackground": true,
-                "stretched": false,
-                "unsplash": {
-                    "author": "John Doe",
-                    "profileLink": "https://unsplash.com/@john_doe_fake"
-                }
-            }
-        }
+{
+  "type": "image",
+  "data": {
+    "url": "https://images.unsplash.com/photo-xxxxxxxxxxxxxxxxx",
+    "caption": "An image from Unsplash",
+    "withBorder": false,
+    "withBackground": true,
+    "stretched": false,
+    "unsplash": {
+      "author": "John Doe",
+      "profileLink": "https://unsplash.com/@john_doe_fake"
+    }
+  }
+}
 ```
 
 ## Development
@@ -134,14 +134,22 @@ $ yarn build
 $ yarn test
 ```
 
-## Contributing and Development
-Bug reports and pull requests are welcome on GitHub https://github.com/kommitters/editorjs-inline-image. Everyone is welcome to participate in the project. If you are thinking about contributing to the project, please check our [Contributing Guide](https://github.com/kommitters/editorjs-inline-image/blob/master/CONTRIBUTING.md).
+## Code of conduct
+We welcome everyone to contribute. Make sure you have read the [CODE_OF_CONDUCT][coc] before.
+
+## Contributing
+For information on how to contribute, please refer to our [CONTRIBUTING][contributing] guide.
 
 ## Changelog
-See the [CHANGELOG](https://github.com/kommitters/editorjs-inline-image/blob/master/CHANGELOG.md) for versions details.
+Features and bug fixes are listed in the [CHANGELOG][changelog] file.
 
 ## License
-See [LICENSE](https://github.com/kommitters/editorjs-inline-image/blob/master/LICENSE) for details.
+This library is licensed under an MIT license. See [LICENSE][license] for details.
 
-## Credits
-Made with 💙 by [kommit](https://kommit.co)
+## Acknowledgements
+Made with 💙 by [kommitters Open Source](https://kommit.co)
+
+[license]: https://github.com/kommitters/editorjs-inline-image/blob/master/LICENSE
+[coc]: https://github.com/kommitters/editorjs-inline-image/blob/master/CODE_OF_CONDUCT.md
+[changelog]: https://github.com/kommitters/editorjs-inline-image/blob/master/CHANGELOG.md
+[contributing]: https://github.com/kommitters/editorjs-inline-image/blob/master/CONTRIBUTING.md
