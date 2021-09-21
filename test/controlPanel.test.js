@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import createControlPanel from './fixtures/controlPanel';
 import createControlPanelWithOutEmbed from './fixtures/controlPanelWithOutEmbed';
 import { parsedResponse } from './fixtures/unsplashApi';
