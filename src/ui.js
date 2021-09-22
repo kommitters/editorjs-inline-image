@@ -4,6 +4,7 @@ import ControlPanel from './controlPanel';
 import bgIcon from '../assets/backgroundIcon.svg';
 import borderIcon from '../assets/borderIcon.svg';
 import stretchedIcon from '../assets/toolboxIcon.svg';
+import middleIcon from '../assets/middleIcon.svg';
 
 /**
  * Class for working with UI:
@@ -46,6 +47,10 @@ export default class Ui {
       {
         name: 'stretched',
         icon: stretchedIcon,
+      },
+      {
+        name: 'middle',
+        icon: middleIcon,
       },
       {
         name: 'withBackground',
@@ -221,7 +226,7 @@ export default class Ui {
   applyTune(tuneName, status) {
     this.nodes.imageHolder.classList.toggle(`${this.CSS.imageHolder}--${tuneName}`, status);
 
-    if (tuneName === 'stretched') {
+    if (tuneName === 'stretched' || tuneName === 'middle') {
       Promise.resolve().then(() => {
         const blockIndex = this.api.blocks.getCurrentBlockIndex();
         this.api.blocks.stretchBlock(blockIndex, status);

@@ -7,6 +7,7 @@ export const data = {
   withBorder: false,
   withBackground: false,
   stretched: false,
+  middle: false,
   unsplash: {
     author: 'John Doe',
     profileLink: 'https://unsplash.com/@john_doe_fake',

@@ -13,6 +13,9 @@ const settings = [
     name: 'stretched',
   },
   {
+    name: 'middle',
+  },
+  {
     name: 'withBackground',
   },
 ];

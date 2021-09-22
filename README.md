@@ -56,10 +56,10 @@ const editor = EditorJS({
 
 ## Config Params
 
-| Field          | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
-| embed          | `{display: boolean}` | You could display or not the embed tab, If you don't fill the embed config by default the value is set on true
-| unsplash       | `{appName: string, clientId: string, maxResults: string}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unspalsh `Application Name`. <br><br> **clientId**: Unsplash `Access Key`. <br><br> **maxResults**: Max number of images per search (default 30).                    |
+| Field    | Type                                                      | Description                                                                                                                                                                                                             |
+| -------- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| embed    | `{display: boolean}`                                      | You could display or not the embed tab, If you don't fill the embed config by default the value is set on true                                                                                                          |
+| unsplash | `{appName: string, clientId: string, maxResults: string}` | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unspalsh `Application Name`. <br><br> **clientId**: Unsplash `Access Key`. <br><br> **maxResults**: Max number of images per search (default 30). |
 
 ## Tool's tunes
 
@@ -71,14 +71,15 @@ const editor = EditorJS({
 
 ## Output data
 
-| Field          | Type      | Description                     |
-| -------------- | --------- | ------------------------------- |
-| url            | `string`  | Image's url                     |
-| caption        | `string`  | Image's caption                 |
-| withBorder     | `boolean` | Add border to image             |
-| withBackground | `boolean` | Add background          |
-| stretched      | `boolean` | Stretch image to screen's width |
-| unsplash       | `{author: string, profileLink: string}` | Unsplash image author information. <br><br> **author**: Author's name. <br><br> **profileLink**: Unsplash porfile link.
+| Field          | Type                                    | Description                                                                                                             |
+| -------------- | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| url            | `string`                                | Image's url                                                                                                             |
+| caption        | `string`                                | Image's caption                                                                                                         |
+| withBorder     | `boolean`                               | Add border to image                                                                                                     |
+| withBackground | `boolean`                               | Add background                                                                                                          |
+| stretched      | `boolean`                               | Stretch image to screen's width                                                                                         |
+| middle         | `boolean`                               | Stretch image to screen's width middle                                                                                  |
+| unsplash       | `{author: string, profileLink: string}` | Unsplash image author information. <br><br> **author**: Author's name. <br><br> **profileLink**: Unsplash porfile link. |
 
 **Image**
 
@@ -90,7 +91,8 @@ const editor = EditorJS({
         "caption" : "An image",
         "withBorder" : false,
         "withBackground" : false,
-        "stretched" : true
+        "stretched" : true,
+        "middle" : true
     }
 }
 ```
@@ -106,6 +108,7 @@ const editor = EditorJS({
                 "withBorder": false,
                 "withBackground": true,
                 "stretched": false,
+                "middle" : false
                 "unsplash": {
                     "author": "John Doe",
                     "profileLink": "https://unsplash.com/@john_doe_fake"

@@ -53,6 +53,14 @@
   max-width: none;
   width: 100%;
 }
+.inline-image__picture--middle img {
+    max-width: none;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .inline-image__tab-wrapper {
   display: flex;

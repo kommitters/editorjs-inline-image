@@ -14,6 +14,7 @@ import toolboxIcon from '../assets/toolboxIcon.svg';
  * @property {boolean} withBorder - should image be rendered with border
  * @property {boolean} withBackground - should image be rendered with background
  * @property {boolean} stretched - should image be stretched to full width of container
+ * @property {boolean} middle - should image be stretched to middle width of container
  * @property {object} unsplash - Unsplash image information
  *  - author: Unsplash image author name
  *  - profileLink: Author profile link
@@ -63,6 +64,7 @@ export default class InlineImage {
       withBorder: data.withBorder !== undefined ? data.withBorder : false,
       withBackground: data.withBackground !== undefined ? data.withBackground : false,
       stretched: data.stretched !== undefined ? data.stretched : false,
+      middle: data.middle !== undefined ? data.middle : false,
       unsplash: data.unsplash,
     };
   }
@@ -112,6 +114,7 @@ export default class InlineImage {
       withBorder: {},
       withBackground: {},
       stretched: {},
+      middle: {},
       caption: {
         br: true,
       },
