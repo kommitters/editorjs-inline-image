@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import createUi from './fixtures/ui';
 import { data } from './fixtures/toolData';
 import { triggerEvent } from './testHelpers';
