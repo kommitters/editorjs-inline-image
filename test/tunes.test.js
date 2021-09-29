@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import createTunes from './fixtures/tunes';
 import { data } from './fixtures/toolData';
 
