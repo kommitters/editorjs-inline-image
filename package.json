@@ -40,7 +40,7 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
