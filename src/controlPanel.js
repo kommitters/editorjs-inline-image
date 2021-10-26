@@ -34,8 +34,8 @@ export default class ControlPanel {
       imgWrapper: 'inline-image__img-wrapper',
       thumb: 'inline-image__thumb',
       active: 'active',
-      hidden: 'hidden',
-      scroll: 'scroll',
+      hidden: 'codex-hidden',
+      scroll: 'codex-scroll',
     };
 
     this.onSelectImage = onSelectImage;
