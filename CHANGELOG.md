@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (19.01.2022)
+
+* Updated packages with known security breaches.
+* Update the css dependencies.
+
 ## 1.0.0 (09.11.2021)
 
 * Updated packages with known security breaches.
