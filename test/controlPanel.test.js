@@ -64,10 +64,10 @@ describe('ControlPanel', () => {
       unsplashPanel = controlPanel.nodes.unsplashPanel;
     });
 
-    it('creates the unsplash panel (hidden)', () => {
+    it('creates the unsplash panel (panel-hidden)', () => {
       expect(unsplashPanel).not.toBeEmptyDOMElement();
 
-      expect(unsplashPanel).toHaveClass('hidden');
+      expect(unsplashPanel).toHaveClass('panel-hidden');
     });
 
     describe('unsplash search', () => {
@@ -174,7 +174,7 @@ describe('ControlPanel without Embed', () => {
 
     it('the unsplash panel has to be visible', () => {
       expect(unsplashPanel).not.toBeEmptyDOMElement();
-      expect(unsplashPanel).not.toHaveClass('hidden');
+      expect(unsplashPanel).not.toHaveClass('panel-hidden');
     });
   });
 
