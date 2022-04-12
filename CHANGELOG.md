@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0 (12.04.2022)
+
+* Change some classes names in order to avoid incompatibilities with some frameworks.
+
 ## 1.0.3 (29.03.2022)
 
 * Updated packages with known security breaches.
