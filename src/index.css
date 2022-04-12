@@ -144,10 +144,10 @@
   margin: 20px;
 }
 
-.hidden {
+.panel-hidden {
   display: none;
 }
 
-.scroll {
+.panel-scroll {
   overflow-y: scroll;
 }
