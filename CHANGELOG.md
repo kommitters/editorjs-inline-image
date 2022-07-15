@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 (15.07.2022)
+
+* Add workflow for automatic publishing in npm
+
 ## 1.1.0 (12.04.2022)
 
 * Change some classes names in order to avoid incompatibilities with some frameworks.
