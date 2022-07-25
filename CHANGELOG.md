@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2 (25.07.2022)
+
+* Add security policy to repository
+* Update packages with known security breaches
+
 ## 1.1.1 (15.07.2022)
 
 * Add workflow for automatic publishing in npm
