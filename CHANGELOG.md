@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.4 (12.09.2022)
+
+* Add OpenSSF BestPractices & Scorecard badges
+* Add CDN version documentation
+
 ## 1.1.3 (09.08.2022)
 
 * Add scorecards actions

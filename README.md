@@ -1,6 +1,9 @@
-![](https://badgen.net/badge/Editor.js/v2.0/blue)
 
 # EditorJS Unsplash Inline Image Tool
+![](https://badgen.net/badge/Editor.js/v2.0/blue)
+[![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6469/badge)](https://bestpractices.coreinfrastructure.org/projects/6469)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/kommitters/editorjs-inline-image/badge)](https://api.securityscorecards.dev/projects/github.com/kommitters/editorjs-inline-image)
+
 
 Image tool for [Editor.js](https://editorjs.io).
 
@@ -28,6 +31,16 @@ Include module at your application
 
 ```javascript
 import InlineImage from 'editorjs-inline-image';
+```
+
+### Load from CDN
+
+You can load a specific version of the package from [jsDelivr CDN](https://www.jsdelivr.com/package/npm/editorjs-inline-image).
+
+Require this script on a page with Editor.js.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/editorjs-inline-image"></script>
 ```
 
 ## Usage
