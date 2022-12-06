@@ -14,7 +14,8 @@ import ModalHandler from './modalHandler';
  */
 export default class Ui {
   /**
-   * @param {{api: object, config: object, readOnly: Boolean, onAddImageData: Function, onTuneToggled: Function}}
+   * @param {{api: object, config: object, readOnly: Boolean,
+   *   onAddImageData: Function, onTuneToggled: Function}}
    *   api - Editorjs API
    *   config - Tool custom config
    *   readOnly - read-only mode flag
