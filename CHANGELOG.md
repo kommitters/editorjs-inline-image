@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0 (06.12.2022)
+
+* Bump loader-utils from 1.4.0 to 1.4.2
+* Bump decode-uri-component from 0.2.0 to 0.2.2
+* Implement feature: Image zoom when clicked
+
 ## 1.1.5 (28.10.2022)
 
 * Add Coverage Report with Coveralls
