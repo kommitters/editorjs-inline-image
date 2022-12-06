@@ -4,6 +4,7 @@ import ControlPanel from './controlPanel';
 import bgIcon from '../assets/backgroundIcon.svg';
 import borderIcon from '../assets/borderIcon.svg';
 import stretchedIcon from '../assets/toolboxIcon.svg';
+import ModalHandler from './modalHandler';
 
 /**
  * Class for working with UI:
@@ -13,7 +14,8 @@ import stretchedIcon from '../assets/toolboxIcon.svg';
  */
 export default class Ui {
   /**
-   * @param {{api: object, config: object, readOnly: Boolean, onAddImageData: Function, onTuneToggled: Function}}
+   * @param {{api: object, config: object, readOnly: Boolean,
+   *   onAddImageData: Function, onTuneToggled: Function}}
    *   api - Editorjs API
    *   config - Tool custom config
    *   readOnly - read-only mode flag
@@ -78,6 +80,8 @@ export default class Ui {
       caption: null,
       credits: null,
     };
+
+    this.modal = new ModalHandler();
   }
 
   /**
@@ -117,6 +121,8 @@ export default class Ui {
     this.nodes.caption = caption;
 
     this.applySettings(data);
+
+    this.setEvents();
 
     return wrapper;
   }
@@ -241,6 +247,15 @@ export default class Ui {
   applySettings(data) {
     this.settings.forEach((tune) => {
       this.applyTune(tune.name, data[tune.name]);
+    });
+  }
+
+  /**
+   * Capture events in the Inline Image block
+   */
+  setEvents() {
+    this.nodes.image.addEventListener('click', () => {
+      this.modal.open(this.nodes.image.src);
     });
   }
 }

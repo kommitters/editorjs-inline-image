@@ -8,7 +8,8 @@ import UnsplashClient from './unsplashClient';
  */
 export default class ControlPanel {
   /**
-   * @param {{api: object, config: object, readOnly: Boolean, cssClasses: object, onSelectImage: Function}}
+   * @param {{ api: object, config: object, cssClasses: object,
+   *  onSelectImage: Function, readOnly: Boolean }}
    *  api - Editorjs API
    *  config - Tool custom config
    *  readOnly - read-only mode flag
@@ -52,7 +53,7 @@ export default class ControlPanel {
 
     this.unsplashClient = new UnsplashClient(this.config.unsplash);
     this.searchTimeout = null;
-    this.showEmbedTab = this.config.embed ? this.config.embed.display : true
+    this.showEmbedTab = this.config.embed ? this.config.embed.display : true;
   }
 
   /**
@@ -75,16 +76,16 @@ export default class ControlPanel {
     const embedUrlPanel = this.renderEmbedUrlPanel();
     const unsplashPanel = this.renderUnsplashPanel();
 
-    this.showEmbedTab && tabWrapper.appendChild(embedUrlTab);
+    if (this.showEmbedTab) { tabWrapper.appendChild(embedUrlTab); }
     tabWrapper.appendChild(unsplashTab);
     wrapper.appendChild(tabWrapper);
-    this.showEmbedTab && wrapper.appendChild(embedUrlPanel);
+    if (this.showEmbedTab) { wrapper.appendChild(embedUrlPanel); }
     wrapper.appendChild(unsplashPanel);
 
     this.nodes.embedUrlPanel = this.showEmbedTab ? embedUrlPanel : null;
     this.nodes.unsplashPanel = unsplashPanel;
-    this.nodes.embedUrlTab   = this.showEmbedTab ? embedUrlTab : null;
-    this.nodes.unsplashTab   = unsplashTab;
+    this.nodes.embedUrlTab = this.showEmbedTab ? embedUrlTab : null;
+    this.nodes.unsplashTab = unsplashTab;
 
     return wrapper;
   }
