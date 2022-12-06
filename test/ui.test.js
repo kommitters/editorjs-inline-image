@@ -3,8 +3,9 @@
  */
 import createUi from './fixtures/ui';
 import { data } from './fixtures/toolData';
-import { triggerEvent } from './testHelpers';
+import triggerEvent from './testHelpers';
 import ControlPanel from '../src/controlPanel';
+import ModalHandler from '../src/modalHandler';
 
 const notify = jest.fn();
 
@@ -68,5 +69,20 @@ describe('Ui', () => {
 
     ui.applyTune('withBackground', true);
     expect(ui.nodes.imageHolder).toHaveClass('inline-image__picture--withBackground');
+  });
+
+  describe('Instance clases', () => {
+    beforeEach(() => { ui.render(data); });
+    it('instances modalHandler', () => {
+      expect(ui.modal).toBeDefined();
+      expect(ui.modal).toBeInstanceOf(ModalHandler);
+    });
+  });
+
+  describe('setEvents', () => {
+    beforeEach(() => { ui.render(data); });
+    it('adds click event to the Inline Image block', () => {
+      expect(ui.nodes.image.onclick).toBeDefined();
+    });
   });
 });

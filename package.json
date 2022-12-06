@@ -46,6 +46,7 @@
     "intrinsic-scale": "^3.0.4"
   },
   "jest": {
+    "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "<rootDir>/test/config/setupTests.js"
     ],
