@@ -71,7 +71,7 @@ describe('Ui', () => {
     expect(ui.nodes.imageHolder).toHaveClass('inline-image__picture--withBackground');
   });
 
-  describe('Instance clases', () => {
+  describe('Instance classes', () => {
     beforeEach(() => { ui.render(data); });
     it('instances modalHandler', () => {
       expect(ui.modal).toBeDefined();
