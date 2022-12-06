@@ -4,7 +4,7 @@
 import createControlPanel from './fixtures/controlPanel';
 import createControlPanelWithOutEmbed from './fixtures/controlPanelWithOutEmbed';
 import { parsedResponse } from './fixtures/unsplashApi';
-import { triggerEvent } from './testHelpers';
+import triggerEvent from './testHelpers';
 import UnsplashClient from '../src/unsplashClient';
 
 const onSelectImage = jest.fn();
@@ -155,14 +155,13 @@ describe('ControlPanel without Embed', () => {
 
     beforeEach(() => {
       embedUrlPanel = controlPanel.nodes.embedUrlPanel;
-      embedUrlTab = controlPanel.nodes.embedUrlTab
+      embedUrlTab = controlPanel.nodes.embedUrlTab;
     });
 
     it('the embed panel does not visible', () => {
       expect(embedUrlPanel).toBeNull();
       expect(embedUrlTab).toBeNull();
     });
-
   });
 
   describe('unsplash is visible', () => {
@@ -177,5 +176,4 @@ describe('ControlPanel without Embed', () => {
       expect(unsplashPanel).not.toHaveClass('panel-hidden');
     });
   });
-
 });

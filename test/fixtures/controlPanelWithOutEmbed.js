@@ -9,7 +9,7 @@ const cssClasses = {
  * Config object without embed
  */
 const config = {
-  embed:{
+  embed: {
     display: false,
   },
 
@@ -17,7 +17,6 @@ const config = {
     appName: 'test',
   },
 };
-
 
 /**
  * Creates an instance of ControlPanel

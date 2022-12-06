@@ -4,6 +4,7 @@ module.exports = {
   rules: {
     'class-methods-use-this': ['off'],
     'no-underscore-dangle': ['error', { allowAfterThis: true }],
+    'no-restricted-globals': ['off']
   },
   globals: {
     fetch: false,
@@ -11,6 +12,7 @@ module.exports = {
     FileReader: false,
   },
   env: {
+    "browser": true,
     'jest/globals': true,
   },
 };

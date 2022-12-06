@@ -15,7 +15,9 @@
   "scripts": {
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint src/ test/ --ext .js",
+    "lint:fix": "eslint src/ test/ --ext .js --fix"
   },
   "author": {
     "name": "kommitters Open Source",
@@ -40,9 +42,11 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
-    "axios": "0.26.0"
+    "axios": "0.26.0",
+    "intrinsic-scale": "^3.0.4"
   },
   "jest": {
+    "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
       "<rootDir>/test/config/setupTests.js"
     ],
