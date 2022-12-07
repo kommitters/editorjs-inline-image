@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1 (07.12.2022)
+
+* Bump minimatch from 3.0.4 to 3.1.2
+
 ## 1.2.0 (06.12.2022)
 
 * Bump loader-utils from 1.4.0 to 1.4.2
