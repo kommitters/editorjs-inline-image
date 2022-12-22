@@ -2,7 +2,7 @@
 
 ## 1.2.2 (22.12.2022)
 
-* Apply security best practices
+* Apply security best practices hardening GitHub Actions.
 
 ## 1.2.1 (07.12.2022)
 
