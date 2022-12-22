@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2 (22.12.2022)
+
+* Apply security best practices hardening GitHub Actions.
+
 ## 1.2.1 (07.12.2022)
 
 * Bump minimatch from 3.0.4 to 3.1.2
