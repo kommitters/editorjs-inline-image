@@ -1,6 +1,6 @@
 {
-  "name": "editorjs-inline-image",
-  "version": "1.2.3",
+  "name": "@samandar.boymurodov/editorjs-inline-image",
+  "version": "1.2.4",
   "keywords": [
     "tool",
     "image",
@@ -10,7 +10,7 @@
   ],
   "description": "Unsplash inline images tool for editorjs",
   "license": "MIT",
-  "repository": "https://github.com/kommitters/editorjs-inline-image",
+  "repository": "https://github.com/samandar-boymurodov/editorjs-inline-image",
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
