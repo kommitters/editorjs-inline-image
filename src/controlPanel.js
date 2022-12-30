@@ -54,6 +54,7 @@ export default class ControlPanel {
     this.unsplashClient = new UnsplashClient(this.config.unsplash);
     this.searchTimeout = null;
     this.showEmbedTab = this.config.embed ? this.config.embed.display : true;
+    this.updateUrlOnSelect = this.config.unsplash.updateUrlOnSelect || ((url) => url);
   }
 
   /**
@@ -275,7 +276,7 @@ export default class ControlPanel {
     url, author, profileLink, downloadLocation,
   }) {
     this.onSelectImage({
-      url,
+      url: this.updateUrlOnSelect(url) || url,
       unsplash: {
         author,
         profileLink,
