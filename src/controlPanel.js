@@ -53,7 +53,9 @@ export default class ControlPanel {
 
     this.unsplashClient = new UnsplashClient(this.config.unsplash);
     this.searchTimeout = null;
-    this.showEmbedTab = this.config.embed ? this.config.embed.display : true;
+    this.unsplashInnerHtml = this.config.unsplashInnerHtml;
+    this.showEmbedTab = !this.unsplashInnerHtml
+        && (this.config.embed ? this.config.embed.display : true);
     this.updateUrlOnSelect = this.config.unsplash.updateUrlOnSelect || ((url) => url);
   }
 
@@ -70,9 +72,11 @@ export default class ControlPanel {
       onclick: () => this.showEmbedUrlPanel(),
     });
     const unsplashTab = make('div', [this.cssClasses.tab, this.showEmbedTab ? null : this.cssClasses.active], {
-      innerHTML: 'Unsplash',
+      innerHTML: this.unsplashInnerHtml || 'Unsplash',
       onclick: () => this.showUnsplashPanel(),
     });
+
+    if (this.unsplashInnerHtml) { unsplashTab.classList.remove(this.cssClasses.active); }
 
     const embedUrlPanel = this.renderEmbedUrlPanel();
     const unsplashPanel = this.renderUnsplashPanel();
@@ -83,9 +87,9 @@ export default class ControlPanel {
     if (this.showEmbedTab) { wrapper.appendChild(embedUrlPanel); }
     wrapper.appendChild(unsplashPanel);
 
-    this.nodes.embedUrlPanel = this.showEmbedTab ? embedUrlPanel : null;
+    this.nodes.embedUrlPanel = embedUrlPanel;
     this.nodes.unsplashPanel = unsplashPanel;
-    this.nodes.embedUrlTab = this.showEmbedTab ? embedUrlTab : null;
+    this.nodes.embedUrlTab = embedUrlTab;
     this.nodes.unsplashTab = unsplashTab;
 
     return wrapper;
@@ -109,7 +113,7 @@ export default class ControlPanel {
    * @returns {void}
    */
   showUnsplashPanel() {
-    this.nodes.unsplashTab.classList.add(this.cssClasses.active);
+    if (!this.unsplashInnerHtml) { this.nodes.unsplashTab.classList.add(this.cssClasses.active); }
     this.nodes.embedUrlTab.classList.remove(this.cssClasses.active);
     this.nodes.unsplashPanel.classList.remove(this.cssClasses.hidden);
     this.nodes.embedUrlPanel.classList.add(this.cssClasses.hidden);
