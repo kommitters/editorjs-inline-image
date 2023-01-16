@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.4 (16.01.2023)
+
+* Update all dependencies.
+* Block egress traffic in GitHub Actions.
+* Add stability badge in README.
+
 ## 1.2.3 (28.12.2022)
 
 * Add Renovate as dependency update tool.
