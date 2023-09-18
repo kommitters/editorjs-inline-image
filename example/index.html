@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editor.js example</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+    <link href="assets/demo.css" rel="stylesheet">
+    <script src="assets/json-preview.js"></script>
+    <script src="example_data.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+<div class="ce-example">
+    <div class="ce-example__header">
+        Unsplash plugin test
+    </div>
+    <div class="ce-example__content _ce-example__content--small">
+        <div id="editorjs"></div>
+
+        <div class="ce-example__button" id="saveButton">
+            editor.save()
+        </div>
+        <div class="ce-example__statusbar">
+            Readonly:
+            <b id="readonly-state">
+                Off
+            </b>
+            <div class="ce-example__statusbar-button" id="toggleReadOnlyButton">
+                toggle
+            </div>
+        </div>
+    </div>
+    <div class="ce-example__output">
+        <pre class="ce-example__output-content" id="output"></pre>
+    </div>
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/delimiter@latest"></script>
+
+<script src="../dist/bundle.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+
+<script>
+    const updateQueryParam = (url, q, value )  => {
+        const urlSearchParams = new URLSearchParams(url);
+
+        while (urlSearchParams.get(`amp;${q}`)) {
+            urlSearchParams.delete(`amp;${q}`);
+        }
+
+        urlSearchParams.set(q, value);
+
+        return decodeURIComponent(urlSearchParams.toString());
+    };
+
+    editor = new EditorJS({
+        readOnly: false,
+        holder: 'editorjs',
+        tools: {
+            header: Header,
+            delimiter: Delimiter,
+            unsplash: {
+                class: InlineImage,
+                toolbox: {
+                    title: 'Unsplash',
+                },
+                config: {
+                    unsplashInnerHtml: `<span>Search photos</span>`,
+                    unsplash: {
+                        appName: 'udas',
+                        clientId: 'YUiELidZbnKRhMEECKChvST2BMHOfCR6X3mPia5ZdbU',
+                        updateUrlOnSelect: (url) => {
+                            return updateQueryParam(url, 'q', '10');
+                        },
+                    },
+                },
+            }
+        },
+        data: example_data, // Imported from example_data.js
+
+
+        onReady: function(){
+            saveButton.click();
+        },
+        onChange: function() {
+            // console.log('something changed');
+        }
+    });
+
+
+    // Buttons
+    const saveButton = document.getElementById('saveButton');
+    const toggleReadOnlyButton = document.getElementById('toggleReadOnlyButton');
+    const readOnlyIndicator = document.getElementById('readonly-state');
+
+
+    // Save Example
+    saveButton.addEventListener('click', function () {
+        editor.save()
+            .then((savedData) => {
+                cPreview.show(savedData, document.getElementById("output"));
+            })
+            .catch((error) => {
+                console.error('Saving error', error);
+            });
+    });
+
+    // Toggle Readonly mode
+    toggleReadOnlyButton.addEventListener('click', async () => {
+        const readOnlyState = await editor.readOnly.toggle();
+
+        readOnlyIndicator.textContent = readOnlyState ? 'On' : 'Off';
+    });
+
+</script>
+
+
+</html>
