@@ -27,19 +27,41 @@ export default class Tunes {
     const wrapper = make('div');
     this.buttons = [];
 
+    const tuneNames = {
+      withBorder: 'With border',
+      withBackground: 'With background',
+      stretched: 'Stretch image',
+    };
+
     this.settings.forEach((tune) => {
-      const el = make('div', null, {
-        innerHTML: tune.icon,
+      const textEl = make('div', null, {
+        innerText: tuneNames[tune.name],
+      });
+
+      textEl.classList.add('ce-popover-item__title');
+
+      const el = make('div', [this.cssClasses.settingsButton], {
         onclick: () => this.tuneClicked(tune.name),
       });
 
-      el.classList.add(this.cssClasses.settingsButton);
       el.dataset.tune = tune.name;
-      el.classList.toggle(this.cssClasses.settingsButtonActive, data[tune.name]);
+      el.classList.toggle(
+        this.cssClasses.settingsButtonActive,
+        data[tune.name],
+      );
+
+      const svgWrapperEl = make('div', null, {
+        innerHTML: tune.icon,
+      });
+      el.appendChild(svgWrapperEl);
+      el.appendChild(textEl);
+
+      svgWrapperEl.classList.add('ce-popover-item__icon');
 
       this.buttons.push(el);
       wrapper.appendChild(el);
     });
+
     return wrapper;
   }
 

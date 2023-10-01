@@ -188,3 +188,25 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.cdx-settings-button {
+  --border-radius: 6px;
+	--icon-size: 20px;
+	--icon-size-mobile: 28px;
+	border-radius: var(--border-radius);
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 3px;
+	color: inherit;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.cdx-settings-button:not(:last-of-type) {
+	margin-bottom: 1px;
+}
