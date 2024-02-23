@@ -18,6 +18,7 @@ export const data = {
  */
 export const config = {
   unsplash: {
-    appName: 'test',
+    appName: 'DemoApp',
+    apiUrl: 'http://localhost',
   },
 };
