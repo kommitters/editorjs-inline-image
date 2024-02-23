@@ -212,8 +212,10 @@ export default class ControlPanel {
     clearTimeout(this.searchTimeout);
     this.searchTimeout = setTimeout(() => {
       const query = this.nodes.searchInput.innerHTML;
-      this.unsplashClient.searchImages(query,
-        (results) => this.appendImagesToGallery(results));
+      this.unsplashClient.searchImages(
+        query,
+        (results) => this.appendImagesToGallery(results),
+      );
     }, 1000);
   }
 
