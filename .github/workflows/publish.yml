@@ -18,6 +18,7 @@ jobs:
             github.com:443
             registry.npmjs.org:443
             registry.yarnpkg.com:443
+            objects.githubusercontent.com:443
 
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       # Setup .npmrc file to publish to npm
