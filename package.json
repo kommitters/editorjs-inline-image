@@ -26,11 +26,11 @@
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.10.1",
-    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/jest-dom": "^6.0.0",
     "babel-jest": "^29.0.0",
     "babel-loader": "^9.0.0",
     "css-loader": "^6.5.1",
-    "eslint": "8.31.0",
+    "eslint": "8.57.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-jest": "^27.0.0",
