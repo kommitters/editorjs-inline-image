@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0 (26.02.2024)
+
+* ⚠️ **Breaking change:** The plugin now requires a proxy to fetch the images from Unsplash. It means, each user of the plugin needs to have their own proxy that forwards the requests to Unsplash API. Learn more about it in [this guide](https://github.com/kommitters/editorjs-inline-image/blob/main/proxy_api.md).
+
+  This is to comply with the [Unsplash API guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines), avoiding exposing the Unsplash Access Key on the client-side.
+
+  The proxy URL can be set in the `config.unsplash.apiUrl` param.
+
+  Pull request: [Do not expose Unsplash Access Key by receiving the proxy URL #124](https://github.com/kommitters/editorjs-inline-image/pull/124)
+
+* Update dependencies:
+  * [Update all dependencies and allowed-endpoints in CI, CD, Scorecards workflows #116](https://github.com/kommitters/editorjs-inline-image/pull/116)
+  * [Bump webpack from 5.53.0 to 5.76.0 [SECURITY] #117](https://github.com/kommitters/editorjs-inline-image/pull/117)
+  * [Update dependency axios to v1.6.0 [SECURITY] #123](https://github.com/kommitters/editorjs-inline-image/pull/123)
+
 ## 1.2.4 (16.01.2023)
 
 * Update all dependencies.
