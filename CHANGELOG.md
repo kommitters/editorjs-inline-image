@@ -2,11 +2,11 @@
 
 ## 2.0.0 (26.02.2024)
 
-* ⚠️ **Breaking change:** The plugin now requires a proxy to fetch the images from Unsplash. It means, each user of the plugin needs to have their own proxy that forwards the requests to Unsplash API. Learn more about it in [this guide](https://github.com/kommitters/editorjs-inline-image/blob/main/proxy_api.md).
+* ⚠️ **Breaking change:** The plugin now requires a proxy to fetch images from Unsplash. This change is made to adhere to the [Unsplash API guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines) and enhance security by preventing the exposure of the Unsplash Access Key on the client-side.
 
-  This is to comply with the [Unsplash API guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines), avoiding exposing the Unsplash Access Key on the client-side.
+  Each user of the plugin needs to set up their own proxy that forwards requests to the Unsplash API. Learn more about this requirement and how to configure the proxy in [this guide](https://github.com/kommitters/editorjs-inline-image/blob/main/proxy_api.md).
 
-  The proxy URL can be set in the `config.unsplash.apiUrl` param.
+  To integrate the proxy, set the proxy URL in the `config.unsplash.apiUrl` parameter.
 
   Pull request: [Do not expose Unsplash Access Key by receiving the proxy URL #124](https://github.com/kommitters/editorjs-inline-image/pull/124)
 
