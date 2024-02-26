@@ -15,7 +15,7 @@ Embed images from [Unsplash](https://unsplash.com/), blob or URLs.
 
 ## Notes
 
-Do not require a server-side uploader.
+Requires a proxy for the Unsplash API to avoid exposing the Unsplash Access Key on the client-side. See [Proxy for Unsplash API](proxy_api.md) for more information.
 
 Built following the [Unsplash API Guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines).
 
@@ -61,7 +61,8 @@ const editor = EditorJS({
           },
           unsplash: {
             appName: 'your_app_name',
-            clientId: 'your_client_id'
+            apiUrl: 'https://your-proxy-api-url.com',
+            maxResults: 30,
           }
         }
       }
@@ -73,8 +74,8 @@ const editor = EditorJS({
 
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
-| embed          | `{display: boolean}` | You could display or not the embed tab, If you don't fill the embed config by default the value is set on true
-| unsplash       | `{appName: string, clientId: string, maxResults: string}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unspalsh `Application Name`. <br><br> **clientId**: Unsplash `Access Key`. <br><br> **maxResults**: Max number of images per search (default 30).                    |
+| embed          | `{display: boolean}` | You could display or not the embed tab, If you don't fill the embed config by default the value is set on `true`. |
+| unsplash       | `{appName: string, apiUrl: string, maxResults: string}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unsplash `Application Name`. <br><br> **apiUrl**: URL of the Proxy for Unsplash API. <br><br> **maxResults**: Max number of images per search (default 30). |
 
 ## Tool's tunes
 

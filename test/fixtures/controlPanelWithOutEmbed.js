@@ -14,7 +14,8 @@ const config = {
   },
 
   unsplash: {
-    appName: 'test',
+    appName: 'DemoApp',
+    apiUrl: 'http://localhost',
   },
 };
 

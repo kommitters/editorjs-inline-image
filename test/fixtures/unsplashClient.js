@@ -3,8 +3,7 @@ import UnsplashClient from '../../src/unsplashClient';
 const unsplashConfig = {
   apiUrl: 'http://localhost',
   appName: 'DemoApp',
-  clientId: '12345',
-  maxResults: '30',
+  maxResults: 30,
 };
 
 /**

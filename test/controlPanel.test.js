@@ -12,10 +12,11 @@ const notify = jest.fn();
 
 describe('ControlPanel', () => {
   let controlPanel;
+  let controlPanelRender;
 
   beforeEach(() => {
     controlPanel = createControlPanel(onSelectImage, notify);
-    controlPanel.render();
+    controlPanelRender = controlPanel.render();
   });
 
   afterEach(() => {
@@ -34,6 +35,9 @@ describe('ControlPanel', () => {
     });
 
     it('renders the embedUrl panel', () => {
+      // `toBeVisible` now checks if the element is present in the document
+      document.body.appendChild(controlPanelRender);
+
       expect(embedUrlPanel).not.toBeEmptyDOMElement();
       expect(embedUrlPanel).toBeVisible();
     });
@@ -134,7 +138,7 @@ describe('ControlPanel', () => {
         }));
       });
 
-      it('downloads image from unspalsh', () => {
+      it('downloads image from unsplash', () => {
         expect(mockDownloadImage).toHaveBeenCalledWith(imageData.downloadLocation);
       });
     });

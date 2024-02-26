@@ -8,9 +8,8 @@ const mockApiRequest = (statusCode, response) => {
   nock('http://localhost')
     .get('/search/photos')
     .query({
-      client_id: '12345',
       query: 'pizza',
-      per_page: '30',
+      per_page: 30,
     })
     .reply(statusCode, response);
 };
