@@ -134,7 +134,7 @@ describe('ControlPanel', () => {
         }));
       });
 
-      it('downloads image from unspalsh', () => {
+      it('downloads image from unsplash', () => {
         expect(mockDownloadImage).toHaveBeenCalledWith(imageData.downloadLocation);
       });
     });

@@ -182,6 +182,7 @@ export default class Ui {
       this.api.blocks.delete(blockIndex);
     })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.error(err);
       });
   }
@@ -233,6 +234,7 @@ export default class Ui {
         this.api.blocks.stretchBlock(blockIndex, status);
       })
         .catch((err) => {
+          // eslint-disable-next-line no-console
           console.error(err);
         });
     }

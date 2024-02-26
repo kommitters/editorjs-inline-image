@@ -5,8 +5,8 @@ import axios from 'axios';
  */
 export default class UnsplashClient {
   constructor(config) {
-    this.apiUrl = config && config.apiUrl ? config.apiUrl : 'https://api.unsplash.com';
-    this.clientId = config && config.clientId ? config.clientId : '';
+    // Remove trailing slashes from the URL
+    this.apiUrl = config && config.apiUrl.replace(/\/+$/, '');
     this.perPage = config && config.maxResults ? config.maxResults : 30;
   }
 
@@ -14,13 +14,12 @@ export default class UnsplashClient {
    * Search images
    *
    * @param {string} query Image search query term
-   * @param {Function} callback Function for redering image gallery
+   * @param {Function} callback Function for rendering image gallery
    * @returns {void}
    */
   searchImages(query, callback) {
     axios.get(`${this.apiUrl}/search/photos`, {
       params: {
-        client_id: this.clientId,
         query,
         per_page: this.perPage,
       },
@@ -62,10 +61,9 @@ export default class UnsplashClient {
   * @returns {void}
   */
   downloadImage(downloadLocation) {
-    axios.get(downloadLocation, {
-      params: {
-        client_id: this.clientId,
-      },
-    }).catch((error) => console.log(error));
+    // Replace Unsplash API URL with the proxy API URL
+    const proxyDownloadLocation = downloadLocation.replace('https://api.unsplash.com', this.apiUrl);
+    // eslint-disable-next-line no-console
+    axios.get(proxyDownloadLocation).catch((error) => console.error('Error downloading image', error));
   }
 }
