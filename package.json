@@ -43,8 +43,8 @@
     "webpack-cli": "^5.0.0"
   },
   "dependencies": {
-    "axios": "1.6.0",
-    "intrinsic-scale": "^3.0.4"
+    "axios": "1.6.8",
+    "intrinsic-scale": "^4.0.0"
   },
   "jest": {
     "testEnvironment": "jsdom",
