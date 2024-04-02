@@ -144,6 +144,35 @@
   margin: 20px;
 }
 
+.inline-image__orientation-wrapper{
+  margin: 10px;
+}
+
+.inline-image__orientation-button{
+  margin-right: 5px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #F0F0F0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.inline-image__orientation-button.active{
+  background-color: #388ae5;
+  color: white;
+  border-color: #388ae5;
+}
+
+.inline-image__orientation-button.active:hover{
+  background-color: #388ae5;
+  color: white;
+}
+
+.inline-image__orientation-button:hover{
+  background-color: #F0F0F0;
+}
+
 .panel-hidden {
   display: none;
 }

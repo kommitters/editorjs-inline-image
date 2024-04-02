@@ -17,12 +17,15 @@ export default class UnsplashClient {
    * @param {Function} callback Function for rendering image gallery
    * @returns {void}
    */
-  searchImages(query, callback) {
+  searchImages(query, callback, orientation) {
+    const params = {
+      query,
+      per_page: this.perPage,
+    };
+
+    if (orientation) params.orientation = orientation;
     axios.get(`${this.apiUrl}/search/photos`, {
-      params: {
-        query,
-        per_page: this.perPage,
-      },
+      params,
     })
       .then((response) => callback(this.parseResponse(response.data)))
       .catch(() => callback([]));

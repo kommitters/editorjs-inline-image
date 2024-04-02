@@ -28,6 +28,8 @@ export default class ControlPanel {
       controlPanel: 'inline-image__control-panel',
       tabWrapper: 'inline-image__tab-wrapper',
       tab: 'inline-image__tab',
+      orientationWrapper: 'inline-image__orientation-wrapper',
+      orientationButton: 'inline-image__orientation-button',
       embedButton: 'inline-image__embed-button',
       search: 'inline-image__search',
       imageGallery: 'inline-image__image-gallery',
@@ -49,11 +51,15 @@ export default class ControlPanel {
       unsplashPanel: null,
       imageGallery: null,
       searchInput: null,
+      landscapeButton: null,
+      portraitButton: null,
+      squarishButton: null,
     };
 
     this.unsplashClient = new UnsplashClient(this.config.unsplash);
     this.searchTimeout = null;
     this.showEmbedTab = this.config.embed ? this.config.embed.display : true;
+    this.queryOrientation = null;
   }
 
   /**
@@ -169,10 +175,12 @@ export default class ControlPanel {
       contentEditable: !this.readOnly,
       oninput: () => this.searchInputHandler(),
     });
+    const orientationWrapper = this.buildOrientationWrapper();
 
     searchInput.dataset.placeholder = 'Search for an image...';
 
     wrapper.appendChild(searchInput);
+    wrapper.appendChild(orientationWrapper);
     wrapper.appendChild(imageGallery);
 
     this.nodes.searchInput = searchInput;
@@ -215,6 +223,7 @@ export default class ControlPanel {
       this.unsplashClient.searchImages(
         query,
         (results) => this.appendImagesToGallery(results),
+        this.queryOrientation,
       );
     }, 1000);
   }
@@ -284,5 +293,51 @@ export default class ControlPanel {
       },
     });
     this.unsplashClient.downloadImage(downloadLocation);
+  }
+
+  /**
+   * Builds the orientation wrapper that wraps the orientation buttons.
+   * @returns {HTMLDivElement}
+   */
+
+  buildOrientationWrapper() {
+    const wrapper = make('div', [this.cssClasses.orientationWrapper]);
+
+    ['Landscape', 'Portrait', 'Squarish'].forEach((orientation) => {
+      const button = make('button', [this.cssClasses.orientationButton], {
+        id: `${orientation.toLowerCase()}-button`,
+        innerHTML: orientation,
+        onclick: (e) => this.handleOrientationButtonClick(e),
+      });
+      wrapper.appendChild(button);
+      this.nodes[`${orientation.toLowerCase()}Button`] = button;
+    });
+
+    return wrapper;
+  }
+
+  /**
+   * OnClick handler for orientation buttons
+   *
+   * @param {any} event handler event
+   * @returns {void}
+   */
+
+  handleOrientationButtonClick(event) {
+    const isActive = event.target.classList.contains(this.cssClasses.active);
+    ['landscapeButton', 'portraitButton', 'squarishButton'].forEach((button) => {
+      this.nodes[button].classList.remove(this.cssClasses.active);
+    });
+
+    if (!isActive) {
+      event.target.classList.add(this.cssClasses.active);
+      this.queryOrientation = event.target.innerHTML.toLowerCase();
+    } else this.queryOrientation = null;
+
+    const query = this.nodes.searchInput.innerHTML;
+    if (query) {
+      this.showLoader();
+      this.performSearch();
+    }
   }
 }
