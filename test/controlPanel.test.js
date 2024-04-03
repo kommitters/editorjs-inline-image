@@ -87,7 +87,7 @@ describe('ControlPanel', () => {
 
         jest.runAllTimers();
 
-        expect(mockSearchImages).toHaveBeenCalledWith(query, expect.any(Function), null);
+        expect(mockSearchImages).toHaveBeenCalledWith(query, null, expect.any(Function));
       });
 
       it('triggers unsplash image search on input event with orientation', () => {
@@ -105,7 +105,7 @@ describe('ControlPanel', () => {
 
         jest.runAllTimers();
 
-        expect(mockSearchImages).toHaveBeenCalledWith(query, expect.any(Function), 'landscape');
+        expect(mockSearchImages).toHaveBeenCalledWith(query, 'landscape', expect.any(Function));
       });
 
       it('creates image gallery from unsplash data', () => {

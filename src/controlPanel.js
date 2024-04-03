@@ -36,6 +36,9 @@ export default class ControlPanel {
       noResults: 'inline-image__no-results',
       imgWrapper: 'inline-image__img-wrapper',
       thumb: 'inline-image__thumb',
+      landscapeImg: 'landscape-img',
+      portraitImg: 'portrait-img',
+      squarishImg: 'squarish-img',
       active: 'active',
       hidden: 'panel-hidden',
       scroll: 'panel-scroll',
@@ -222,8 +225,8 @@ export default class ControlPanel {
       const query = this.nodes.searchInput.innerHTML;
       this.unsplashClient.searchImages(
         query,
-        (results) => this.appendImagesToGallery(results),
         this.queryOrientation,
+        (results) => this.appendImagesToGallery(results),
       );
     }, 1000);
   }
@@ -257,7 +260,10 @@ export default class ControlPanel {
    */
   createThumbImage(image) {
     const imgWrapper = make('div', this.cssClasses.imgWrapper);
-    const img = make('img', this.cssClasses.thumb, {
+    const imgClasses = [this.cssClasses.thumb];
+    if (this.queryOrientation) imgClasses.push(this.cssClasses[`${this.queryOrientation}Img`]);
+
+    const img = make('img', imgClasses, {
       src: image.thumb,
       onclick: () => this.downloadUnsplashImage(image),
     });
@@ -301,9 +307,10 @@ export default class ControlPanel {
    */
 
   buildOrientationWrapper() {
+    const orientationModes = ['Landscape', 'Portrait', 'Squarish'];
     const wrapper = make('div', [this.cssClasses.orientationWrapper]);
 
-    ['Landscape', 'Portrait', 'Squarish'].forEach((orientation) => {
+    orientationModes.forEach((orientation) => {
       const button = make('button', [this.cssClasses.orientationButton], {
         id: `${orientation.toLowerCase()}-button`,
         innerHTML: orientation,
@@ -324,8 +331,9 @@ export default class ControlPanel {
    */
 
   handleOrientationButtonClick(event) {
+    const orientationButtons = ['landscapeButton', 'portraitButton', 'squarishButton'];
     const isActive = event.target.classList.contains(this.cssClasses.active);
-    ['landscapeButton', 'portraitButton', 'squarishButton'].forEach((button) => {
+    orientationButtons.forEach((button) => {
       this.nodes[button].classList.remove(this.cssClasses.active);
     });
 

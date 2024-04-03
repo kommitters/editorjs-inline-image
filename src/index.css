@@ -173,6 +173,21 @@
   background-color: #F0F0F0;
 }
 
+.landscape-img{
+  height: auto;
+  aspect-ratio: 1.5;
+}
+
+.portrait-img{
+  height: auto;
+  aspect-ratio: 0.8;
+}
+
+.squarish-img{
+  height: auto;
+  aspect-ratio: 1;
+}
+
 .panel-hidden {
   display: none;
 }
