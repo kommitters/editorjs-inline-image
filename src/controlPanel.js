@@ -305,16 +305,16 @@ export default class ControlPanel {
    * Builds the orientation wrapper that wraps the orientation buttons.
    * @returns {HTMLDivElement}
    */
-
   buildOrientationWrapper() {
     const orientationModes = ['Landscape', 'Portrait', 'Squarish'];
+    const orientationButtons = orientationModes.map((orientation) => `${orientation.toLowerCase()}Button`);
     const wrapper = make('div', [this.cssClasses.orientationWrapper]);
 
     orientationModes.forEach((orientation) => {
       const button = make('button', [this.cssClasses.orientationButton], {
         id: `${orientation.toLowerCase()}-button`,
         innerHTML: orientation,
-        onclick: (e) => this.handleOrientationButtonClick(e),
+        onclick: (e) => this.handleOrientationButtonClick(e, orientationButtons),
       });
       wrapper.appendChild(button);
       this.nodes[`${orientation.toLowerCase()}Button`] = button;
@@ -327,11 +327,10 @@ export default class ControlPanel {
    * OnClick handler for orientation buttons
    *
    * @param {any} event handler event
+   * @param {Array} orientationButtons orientation HTML button elements.
    * @returns {void}
    */
-
-  handleOrientationButtonClick(event) {
-    const orientationButtons = ['landscapeButton', 'portraitButton', 'squarishButton'];
+  handleOrientationButtonClick(event, orientationButtons) {
     const isActive = event.target.classList.contains(this.cssClasses.active);
     orientationButtons.forEach((button) => {
       this.nodes[button].classList.remove(this.cssClasses.active);

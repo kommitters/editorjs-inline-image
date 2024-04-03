@@ -16,19 +16,19 @@
   vertical-align: bottom;
 }
 
-.inline-image__caption[contentEditable=true][data-placeholder]:empty::before {
+.inline-image__caption[contentEditable="true"][data-placeholder]:empty::before {
   position: absolute;
   content: attr(data-placeholder);
   color: #707684;
   font-weight: normal;
   opacity: 0;
- }
+}
 
-.inline-image__caption[contentEditable=true][data-placeholder]:empty::before {
+.inline-image__caption[contentEditable="true"][data-placeholder]:empty::before {
   opacity: 1;
 }
 
-.inline-image__caption[contentEditable=true][data-placeholder]:empty:focus::before {
+.inline-image__caption[contentEditable="true"][data-placeholder]:empty:focus::before {
   opacity: 0;
 }
 
@@ -42,7 +42,6 @@
   max-width: 60%;
   margin: 0 auto;
 }
-
 
 .inline-image__picture--withBorder {
   border: 1px solid #e8e8eb;
@@ -94,8 +93,7 @@
   padding: 10px;
   border-radius: 4px;
   box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.1) 0px 3px 6px,
-    rgba(15, 15, 15, 0.2) 0px 9px 24px;
+    rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
 }
 
 .inline-image__image-gallery {
@@ -108,7 +106,7 @@
 }
 
 .inline-image__img-wrapper {
-    width: 25%;
+  width: 25%;
 }
 
 .inline-image__thumb {
@@ -138,54 +136,54 @@
   width: 96%;
 }
 
-.inline-image__no-results{
+.inline-image__no-results {
   width: 100%;
   text-align: center;
   margin: 20px;
 }
 
-.inline-image__orientation-wrapper{
+.inline-image__orientation-wrapper {
   margin: 10px;
 }
 
-.inline-image__orientation-button{
+.inline-image__orientation-button {
   margin-right: 5px;
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
-  border-color: #F0F0F0;
+  border-color: #f0f0f0;
   background-color: transparent;
   cursor: pointer;
 }
 
-.inline-image__orientation-button.active{
+.inline-image__orientation-button.active {
   background-color: #388ae5;
   color: white;
   border-color: #388ae5;
 }
 
-.inline-image__orientation-button.active:hover{
+.inline-image__orientation-button.active:hover {
   background-color: #388ae5;
   color: white;
 }
 
-.inline-image__orientation-button:hover{
-  background-color: #F0F0F0;
+.inline-image__orientation-button:hover {
+  background-color: #f0f0f0;
 }
 
-.landscape-img{
+.landscape-img {
   height: auto;
-  aspect-ratio: 1.5;
+  aspect-ratio: 3/2;
 }
 
-.portrait-img{
+.portrait-img {
   height: auto;
-  aspect-ratio: 0.8;
+  aspect-ratio: 4/5;
 }
 
-.squarish-img{
+.squarish-img {
   height: auto;
-  aspect-ratio: 1;
+  aspect-ratio: 1/1;
 }
 
 .panel-hidden {
@@ -204,7 +202,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
@@ -214,8 +212,8 @@
 
 .modal-img {
   object-fit: cover;
-  max-width:100%;
-  max-height:100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .close {
