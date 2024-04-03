@@ -21,6 +21,7 @@ jobs:
         allowed-endpoints: >
           coveralls.io:443
           github.com:443
+          nodejs.org:443
           registry.yarnpkg.com:443
           objects.githubusercontent.com:443
 
