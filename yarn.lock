@@ -2432,9 +2432,9 @@ domexception@^4.0.0:
     webidl-conversions "^7.0.0"
 
 electron-to-chromium@^1.4.668:
-  version "1.4.725"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.725.tgz#a599369caa3619ca3ba90a61c0ad03e28158681e"
-  integrity sha512-OGkMXLY7XH6ykHE5ZOVVIMHaGAvvxqw98cswTKB683dntBJre7ufm9wouJ0ExDm0VXhHenU8mREvxIbV5nNoVQ==
+  version "1.4.726"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.726.tgz#9ca95f19e9a0d63675e838b24681182203e40a30"
+  integrity sha512-xtjfBXn53RORwkbyKvDfTajtnTp0OJoPOIBzXvkNbb7+YYvCHJflba3L7Txyx/6Fov3ov2bGPr/n5MTixmPhdQ==
 
 emittery@^0.13.1:
   version "0.13.1"
@@ -3237,11 +3237,6 @@ interpret@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-3.1.1.tgz#5be0ceed67ca79c6c4bc5cf0d7ee843dcea110c4"
   integrity sha512-6xwYfHbajpoF0xLW+iwLkhwgvLoZDfjYfoFNu8ftMoXINzwuymNLd9u/KmwtdT2GbR+/Cz66otEGEVVUHX9QLQ==
-
-intrinsic-scale@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/intrinsic-scale/-/intrinsic-scale-4.0.0.tgz#71d293acb6d874830856a8a5ad9f444d9276ba98"
-  integrity sha512-QFe4azPPUVM+l5eNTSuzbsOk0g4QgPFt6lyXyJza9GWyLbgidpAmVui+6BqNSz7X4FOAK6484bGPbEgv+SwajQ==
 
 is-array-buffer@^3.0.4:
   version "3.0.4"

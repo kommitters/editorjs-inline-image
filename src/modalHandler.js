@@ -1,5 +1,4 @@
-import { contain } from 'intrinsic-scale';
-import { make } from './helpers';
+import { make, resizeToFit } from './helpers';
 
 /**
  * Renders modal when the image is clicked and handle internal actions
@@ -50,7 +49,7 @@ export default class ModalHandler {
 
   /**
    * Load image in the modal and adjust size
-   * @param {} src
+   * @param {string} src - image url
    */
   setImage(src) {
     const image = document.getElementById('inline-image__modal-img');
@@ -58,7 +57,10 @@ export default class ModalHandler {
     const container = document.getElementById('inline-image__modal-content');
     const screenW = screen.width - 200;
     const screenH = screen.height - 200;
-    const { width, height } = contain(screenW, screenH, image.width, image.height);
+    const { width, height } = resizeToFit(
+      { width: image.width, height: image.height },
+      { width: screenW, height: screenH },
+    );
     container.style.maxHeight = `${height}px`;
     container.style.maxWidth = `${width}px`;
   }
