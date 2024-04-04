@@ -10,6 +10,7 @@ const mockApiRequest = (statusCode, response) => {
     .query({
       query: 'pizza',
       per_page: 30,
+      orientation: 'landscape',
     })
     .reply(statusCode, response);
 };
@@ -41,7 +42,7 @@ describe('UnsplashClient', () => {
 
         const callback = mockCallback(parsedResponse, done);
 
-        unsplashClient.searchImages('pizza', callback);
+        unsplashClient.searchImages('pizza', 'landscape', callback);
       });
 
       it('calls callback passing an empty array if search has no results', (done) => {
@@ -49,7 +50,7 @@ describe('UnsplashClient', () => {
 
         const callback = mockCallback([], done);
 
-        unsplashClient.searchImages('pizza', callback);
+        unsplashClient.searchImages('pizza', 'landscape', callback);
       });
     });
 
@@ -59,7 +60,7 @@ describe('UnsplashClient', () => {
 
         const callback = mockCallback([], done);
 
-        unsplashClient.searchImages('pizza', callback);
+        unsplashClient.searchImages('pizza', 'landscape', callback);
       });
     });
   });

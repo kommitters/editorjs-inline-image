@@ -87,7 +87,25 @@ describe('ControlPanel', () => {
 
         jest.runAllTimers();
 
-        expect(mockSearchImages).toHaveBeenCalledWith(query, expect.any(Function));
+        expect(mockSearchImages).toHaveBeenCalledWith(query, null, expect.any(Function));
+      });
+
+      it('triggers unsplash image search on input event with orientation', () => {
+        const mockSearchImages = jest.spyOn(UnsplashClient.prototype, 'searchImages')
+          .mockImplementation();
+        jest.useFakeTimers();
+
+        const query = 'pizza';
+        const input = unsplashPanel.querySelector('#unsplash-search');
+        input.innerHTML = query;
+        triggerEvent(input, 'input');
+
+        const button = unsplashPanel.querySelector('#landscape-button');
+        triggerEvent(button, 'click');
+
+        jest.runAllTimers();
+
+        expect(mockSearchImages).toHaveBeenCalledWith(query, 'landscape', expect.any(Function));
       });
 
       it('creates image gallery from unsplash data', () => {

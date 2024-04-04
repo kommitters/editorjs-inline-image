@@ -70,3 +70,22 @@ export const createImageCredits = ({ appName, author, profileLink }) => {
   wrapper.appendChild(unsplashLink);
   return wrapper;
 };
+
+/**
+ * Resize an image to fit within the modal.
+ *
+ * @param {{width: number, height: number}} ImageSize image width and height.
+ * @param {{width: number, height: number}} sizeToFit width and height size to fit the image.
+ *
+ * @returns {{width: number, height: number}}
+ */
+export const resizeToFit = (
+  { width: imgWidth, height: imgHeight },
+  { width: widthToFit, height: heightToFit },
+) => {
+  const imgRatio = imgWidth / imgHeight;
+  const ratioToFit = widthToFit / heightToFit;
+
+  if (imgRatio > ratioToFit) return { width: widthToFit, height: widthToFit / imgRatio };
+  return { width: heightToFit * imgRatio, height: heightToFit };
+};
