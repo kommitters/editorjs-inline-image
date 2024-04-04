@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.0 (04.04.2024)
+
+* Update the security policy. See[PR #137](https://github.com/kommitters/editorjs-inline-image/pull/137)
+* Update all dependencies. See[PR #134](https://github.com/kommitters/editorjs-inline-image/pull/134)
+* Replace and remove `intrinsic-scale`. See[PR #134](https://github.com/kommitters/editorjs-inline-image/pull/134)
+* Implement orientation feature to select query images between landscape, portrait, and squarish. See [Issue #135](https://github.com/kommitters/editorjs-inline-image/issues/135)
+
 ## 2.0.0 (26.02.2024)
 
 * ⚠️ **Breaking change:** The plugin now requires a proxy to fetch images from Unsplash. This change is made to adhere to the [Unsplash API guidelines](https://help.unsplash.com/en/articles/2511245-unsplash-api-guidelines) and enhance security by preventing the exposure of the Unsplash Access Key on the client-side.
