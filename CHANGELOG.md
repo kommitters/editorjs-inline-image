@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.1.1 (25.04.2024)
+* Add stale issues policy. See [PR #140](https://github.com/kommitters/editorjs-inline-image/pull/140)
+
 ## 2.1.0 (04.04.2024)
 
 * Update the security policy. See[PR #137](https://github.com/kommitters/editorjs-inline-image/pull/137)
