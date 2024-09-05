@@ -6,11 +6,7 @@
 [![OpenSSF Best Practices](https://bestpractices.coreinfrastructure.org/projects/6469/badge)](https://bestpractices.coreinfrastructure.org/projects/6469)
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/kommitters/editorjs-inline-image/badge)](https://api.securityscorecards.dev/projects/github.com/kommitters/editorjs-inline-image)
 
-
-Image tool for [Editor.js](https://editorjs.io).
-
-Embed images from [Unsplash](https://unsplash.com/), blob or URLs.
-
+Image tool for [Editor.js](https://editorjs.io) that enables you to embed images from [Unsplash](https://unsplash.com/), blobs, or URLs directly into your content.
 ![](assets/demo.gif)
 
 ## Notes
@@ -22,6 +18,8 @@ Built following the [Unsplash API Guidelines](https://help.unsplash.com/en/artic
 Extends the functionality of [simple-image](https://github.com/editor-js/simple-image).
 
 ## Installation
+
+You can install the tool via npm or load it from a CDN.
 
 ### Install via NPM
 Get the package
@@ -75,7 +73,7 @@ const editor = EditorJS({
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
 | embed          | `{display: boolean}` | You could display or not the embed tab, If you don't fill the embed config by default the value is set on `true`. |
-| unsplash       | `{appName: string, apiUrl: string, maxResults: string}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unsplash `Application Name`. <br><br> **apiUrl**: URL of the Proxy for Unsplash API. <br><br> **maxResults**: Max number of images per search (default 30). |
+| unsplash       | `{appName: string, apiUrl: string, maxResults: Number}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unsplash `Application Name`. <br><br> **apiUrl**: URL of the Proxy for Unsplash API. <br><br> **maxResults**: Max number of images per search (default 30). |
 
 ## Tool's tunes
 
