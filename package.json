@@ -16,8 +16,8 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development --watch",
     "test": "jest",
-    "lint": "eslint src/ test/ --ext .js",
-    "lint:fix": "eslint src/ test/ --ext .js --fix"
+    "lint": "ESLINT_USE_FLAT_CONFIG=false eslint src/ test/ --ext .js",
+    "lint:fix": "ESLINT_USE_FLAT_CONFIG=false eslint src/ test/ --ext .js --fix"
   },
   "author": {
     "name": "kommitters Open Source",
@@ -29,21 +29,21 @@
     "@testing-library/jest-dom": "^6.0.0",
     "babel-jest": "^29.0.0",
     "babel-loader": "^9.0.0",
-    "css-loader": "^6.5.1",
-    "eslint": "8.57.0",
+    "css-loader": "^7.0.0",
+    "eslint": "9.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jest": "^27.0.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-jest": "^28.8.3",
     "jest": "^29.0.0",
     "jest-environment-jsdom": "^29.3.1",
     "nock": "^13.0.0",
-    "style-loader": "^3.3.0",
+    "style-loader": "^4.0.0",
     "svg-inline-loader": "^0.8.2",
     "webpack": "^5.76.0",
     "webpack-cli": "^5.0.0"
   },
   "dependencies": {
-    "axios": "1.6.8"
+    "axios": "1.7.7"
   },
   "jest": {
     "testEnvironment": "jsdom",
