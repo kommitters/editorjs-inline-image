@@ -8,6 +8,7 @@ export default class UnsplashClient {
     // Remove trailing slashes from the URL
     this.apiUrl = config && config.apiUrl.replace(/\/+$/, '');
     this.perPage = config && config.maxResults ? config.maxResults : 30;
+    this.imageParamsModifier = config && config.imageParams ? config.imageParams : {};
   }
 
   /**
@@ -54,6 +55,22 @@ export default class UnsplashClient {
       author: image.user.name,
       profileLink: image.user.links.html,
     };
+  }
+
+  /**
+   * Applies image resize parameters on the given URL.
+   * https://unsplash.com/documentation#dynamically-resizable-images
+   * @param {String} imageUrl Url of the selected image
+   * @returns Url of the selected image with dynamic resizing parameters
+   */
+  dynamicImageResizing(imageUrl) {
+    const newParams = Object.entries(this.imageParamsModifier);
+    const [urlBase, queryString] = imageUrl.split('?');
+    const existingParams = new URLSearchParams(queryString);
+    newParams.forEach(([key, value]) => {
+      existingParams.set(key, value);
+    });
+    return `${urlBase}?${existingParams.toString()}`;
   }
 
   /**
