@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.2.0 (06.09.2024)
+* Add the ability to modify the quality and dimensions of selected images by adding parameters to the image URL in the Unsplash element configuration, in accordance with the Unsplash API. See [PR #147](https://github.com/kommitters/editorjs-inline-image/pull/147)
+
 ## 2.1.1 (25.04.2024)
 * Add stale issues policy. See [PR #140](https://github.com/kommitters/editorjs-inline-image/pull/140)
 
