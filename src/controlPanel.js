@@ -292,7 +292,7 @@ export default class ControlPanel {
     url, author, profileLink, downloadLocation,
   }) {
     this.onSelectImage({
-      url,
+      url: this.unsplashClient.dynamicImageResizing(url),
       unsplash: {
         author,
         profileLink,
