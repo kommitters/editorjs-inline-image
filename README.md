@@ -61,6 +61,10 @@ const editor = EditorJS({
             appName: 'your_app_name',
             apiUrl: 'https://your-proxy-api-url.com',
             maxResults: 30,
+            imageParams: {
+              q:85,
+              w:1500,
+            }
           }
         }
       }
@@ -73,7 +77,7 @@ const editor = EditorJS({
 | Field          | Type      | Description                     |
 | -------------- | --------- | ------------------------------- |
 | embed          | `{display: boolean}` | You could display or not the embed tab, If you don't fill the embed config by default the value is set on `true`. |
-| unsplash       | `{appName: string, apiUrl: string, maxResults: Number}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unsplash `Application Name`. <br><br> **apiUrl**: URL of the Proxy for Unsplash API. <br><br> **maxResults**: Max number of images per search (default 30). |
+| unsplash       | `{appName: string, apiUrl: string, maxResults: Number, imageParams: Object}`  | Config for **Unsplash API**. Contains 3 fields: <br><br> **appName**: Unsplash `Application Name`. <br><br> **apiUrl**: URL of the Proxy for Unsplash API. <br><br> **maxResults**: Max number of images per search (default 30). <br><br> **imageParams**: Additional configuration parameters for image quality and dimensions. See [Dynamically resizable images](https://unsplash.com/documentation#dynamically-resizable-images) for more information. |
 
 ## Tool's tunes
 
