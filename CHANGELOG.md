@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.2.2 (11.09.2024)
+* Add allowed endpoints for scorecard.yml and changed the node version to 18 for publish.yml. See [PR #154](https://github.com/kommitters/editorjs-inline-image/pull/154)
+
 ## 2.2.1 (10.09.2024)
 * Update dependencies for compatibility and disable rules that are incompatible with ESLint v9. See [PR #150](https://github.com/kommitters/editorjs-inline-image/pull/150)
 
