@@ -146,6 +146,13 @@
   margin: 10px;
 }
 
+.inline-image__orientation-wrapper-button-page {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
 .inline-image__orientation-button {
   margin-right: 5px;
   border-radius: 3px;

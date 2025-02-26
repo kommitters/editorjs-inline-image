@@ -30,6 +30,8 @@ export default class ControlPanel {
       tab: 'inline-image__tab',
       orientationWrapper: 'inline-image__orientation-wrapper',
       orientationButton: 'inline-image__orientation-button',
+			orientationNavigationWrapper: 'inline-image__orientation-wrapper-button-page',
+			navigationButton: 'inline-image__orientation-wrapper-navigation',
       embedButton: 'inline-image__embed-button',
       search: 'inline-image__search',
       imageGallery: 'inline-image__image-gallery',
@@ -57,6 +59,9 @@ export default class ControlPanel {
       landscapeButton: null,
       portraitButton: null,
       squarishButton: null,
+			previousButton: null,
+			nextButton: null,
+			page: 1
     };
 
     this.unsplashClient = new UnsplashClient(this.config.unsplash);
@@ -198,6 +203,7 @@ export default class ControlPanel {
    * @returns {void}
    */
   searchInputHandler() {
+		this.nodes.page = 1;
     this.showLoader();
     this.performSearch();
   }
@@ -223,11 +229,24 @@ export default class ControlPanel {
     clearTimeout(this.searchTimeout);
     this.searchTimeout = setTimeout(() => {
       const query = this.nodes.searchInput.innerHTML;
+			const page = this.nodes.page;
       this.unsplashClient.searchImages(
-        query,
+        { query, page },
         this.queryOrientation,
         (results) => this.appendImagesToGallery(results),
       );
+			if(query) {
+				this.nodes.nextButton.removeAttribute('disabled');
+				this.nodes.nextButton.removeAttribute('style');
+			}
+
+			if (page > 1) {
+				this.nodes.previousButton.removeAttribute('disabled');
+				this.nodes.previousButton.removeAttribute('style');
+			} else {
+				this.nodes.previousButton.setAttribute('disabled', true);
+				this.nodes.previousButton.setAttribute('style', 'cursor: not-allowed;');
+			}
     }, 1000);
   }
 
@@ -308,7 +327,9 @@ export default class ControlPanel {
   buildOrientationWrapper() {
     const orientationModes = ['Landscape', 'Portrait', 'Squarish'];
     const orientationButtons = orientationModes.map((orientation) => `${orientation.toLowerCase()}Button`);
-    const wrapper = make('div', [this.cssClasses.orientationWrapper]);
+    const wrapper = make('div', [this.cssClasses.orientationNavigationWrapper]);
+
+		const wrapperButton = make('div', [this.cssClasses.orientationWrapper])
 
     orientationModes.forEach((orientation) => {
       const button = make('button', [this.cssClasses.orientationButton], {
@@ -316,9 +337,35 @@ export default class ControlPanel {
         innerHTML: orientation,
         onclick: (e) => this.handleOrientationButtonClick(e, orientationButtons),
       });
-      wrapper.appendChild(button);
+      wrapperButton.appendChild(button);
       this.nodes[`${orientation.toLowerCase()}Button`] = button;
     });
+
+		const wrapperButtonPage = make('div', [this.cssClasses.navigationButton]);
+
+		['Previous', 'Next'].forEach((button) => {
+			const buttonElement = make('button', [this.cssClasses.orientationButton], {
+				id: `${button}-button`,
+				innerHTML: button,
+				onclick: (e) => this.handleNavigationButtonClick(e),
+			});
+			wrapperButtonPage.appendChild(buttonElement);
+			this.nodes[`${button.toLowerCase()}Button`] = buttonElement;
+		});
+
+		const query = this.nodes.searchInput;
+		if(!query) {
+			this.nodes.nextButton.setAttribute('disabled', true);
+			this.nodes.nextButton.setAttribute('style', 'cursor: not-allowed;');
+		}
+
+		if (this.nodes.page <= 1) {
+			this.nodes.previousButton.setAttribute('disabled', true);
+			this.nodes.previousButton.setAttribute('style', 'cursor: not-allowed;');
+		}
+		
+		wrapper.appendChild(wrapperButton);
+		wrapper.appendChild(wrapperButtonPage);
 
     return wrapper;
   }
@@ -340,6 +387,29 @@ export default class ControlPanel {
       event.target.classList.add(this.cssClasses.active);
       this.queryOrientation = event.target.innerHTML.toLowerCase();
     } else this.queryOrientation = null;
+
+    const query = this.nodes.searchInput.innerHTML;
+    if (query) {
+      this.showLoader();
+      this.performSearch();
+    }
+  }
+
+	/**
+   * OnClick handler for navigation page buttons
+   *
+   * @param {any} event handler event
+   * @returns {void}
+   */
+  handleNavigationButtonClick(event) {
+		this.nodes.page = event.target.id === 'next-button' ? this.nodes.page + 1 : this.nodes.page - 1;
+		if(this.nodes.page <= 1) {
+			this.nodes.previousButton.setAttribute('disabled', true);
+			this.nodes.previousButton.setAttribute('style', 'cursor: not-allowed;');
+		} else {
+			this.nodes.previousButton.removeAttribute('disabled');
+			this.nodes.previousButton.removeAttribute('style');
+		}
 
     const query = this.nodes.searchInput.innerHTML;
     if (query) {

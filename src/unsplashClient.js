@@ -19,9 +19,10 @@ export default class UnsplashClient {
    * @param {Function} callback Function for rendering image gallery
    * @returns {void}
    */
-  searchImages(query, orientation, callback) {
+  searchImages({ query, page = 1 }, orientation, callback) {
     const params = {
       query,
+			page,
       per_page: this.perPage,
     };
 
