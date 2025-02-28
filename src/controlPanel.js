@@ -345,7 +345,7 @@ export default class ControlPanel {
 
 		['Previous', 'Next'].forEach((button) => {
 			const buttonElement = make('button', [this.cssClasses.orientationButton], {
-				id: `${button.toLowerCase()}-button`,
+				id: `${button}-button`,
 				innerHTML: button,
 				onclick: (e) => this.handleNavigationButtonClick(e),
 			});
