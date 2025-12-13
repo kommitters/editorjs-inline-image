@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Harden Runner
-      uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+      uses: step-security/harden-runner@20cf305ff2072d973412fa9b1e3a4f227bda3c76 # v2.14.0
       with:
         disable-sudo: true
         egress-policy: block
@@ -24,7 +24,7 @@ jobs:
           registry.yarnpkg.com:443
           objects.githubusercontent.com:443
 
-    - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
     - name: Install modules
       run: yarn
     - name: Run linter
@@ -32,6 +32,6 @@ jobs:
     - name: Run tests
       run: yarn test --coverage
     - name: Coveralls
-      uses: coverallsapp/github-action@643bc377ffa44ace6394b2b5d0d3950076de9f63
+      uses: coverallsapp/github-action@ba6dae83310bbd6d33ff77092650dc40bd444a2a
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
